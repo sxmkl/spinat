@@ -7,7 +7,7 @@ hostname=gql-fed.reddit.com
 */
 const obj = JSON.parse($response.body);
 const data = obj.data;
-let e;
+let e; 
 try {
 
   if (e = data?.homeV3?.elements) {
