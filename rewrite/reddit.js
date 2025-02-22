@@ -23,7 +23,7 @@ try {
 
   else if (e = data?.subredditInfoByName?.elements) {
     e.edges = e.edges?.filter(edge =>
-      (console.log(edge.node?.__typename), !edge.node?.__typename?.startsWith("Ad"))
+      !edge.node?.__typename?.startsWith("Ad")
     ) || [];
     
   }
