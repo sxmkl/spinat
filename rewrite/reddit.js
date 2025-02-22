@@ -8,6 +8,7 @@ hostname=gql-fed.reddit.com
 const obj = JSON.parse($response.body);
 const data = obj.data;
 let e; 
+
 try {
 
   if (e = data?.homeV3?.elements) {
@@ -22,12 +23,13 @@ try {
 
   else if (e = data?.subredditInfoByName?.elements) {
     e.edges = e.edges?.filter(edge =>
-      !edge.node?.__typename?.startsWith("Ad")
+      (console.log(edge.node?.__typename), !edge.node?.__typename?.startsWith("Ad"))
     ) || [];
+    
   }
 
   $done({body: JSON.stringify(obj)});
 } catch (error) {
-  console.log('Error:', error);
+  console.log('Error:'+ error);
   $done({});
 }
