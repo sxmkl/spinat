@@ -17,11 +17,7 @@ let obj = JSON.parse($response.body);
 
 switch (true) {
     case url.indexOf("search/notes") != -1:
-        obj.data.items.forEach((item, index) => {
-            if (item.model_type == "ads") {
-                obj.data.items.splice(index, 1);
-            }
-        });
+        obj.data.items = obj.data.items.filter(item => item.model_type !== "ads");
         break;
     default:
         break;
