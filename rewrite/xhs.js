@@ -9,6 +9,7 @@ hostname = so.xiaohongshu.com
 host, apm-fe.xiaohongshu.com, reject
 
 [general]
+# 删除搜索推荐
 udp_drop_list=443
 */
 
