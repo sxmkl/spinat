@@ -1,6 +1,6 @@
 /************************************
 [rewrite_local]
-^https?:\/\/spinat.org\/prefs script-analyze-echo-response https://raw.githubusercontent.com/sxmkl/spinat/main/funcs/prefs.js
+^https?:\/\/spinat.org\/prefs url script-analyze-echo-response https://raw.githubusercontent.com/sxmkl/spinat/main/funcs/prefs.js
 
 [mitm]
 hostname = spinat.org
