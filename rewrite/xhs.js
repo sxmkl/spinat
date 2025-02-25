@@ -17,6 +17,7 @@ let url = $request.url;
 let obj = JSON.parse($response.body);
 
 switch (true) {
+    // Remove search ads
     case url.indexOf("search/notes") != -1:
         obj.data.items = obj.data.items.filter(item => item.model_type !== "ads");
         break;
