@@ -1,10 +1,11 @@
-/* 
-[rewrite_remote]
-^https?:\/\/gql-fed\.reddit\.com url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/reddit.js
+/* *******************************************************************************
+ * [rewrite_local]
+ * ^https?:\/\/gql-fed\.reddit\.com url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/reddit.js
+ *
+ * [mitm]
+ * hostname=gql-fed.reddit.com
+ * *******************************************************************************/
 
-[mitm]
-hostname=gql-fed.reddit.com
-*/
 const obj = JSON.parse($response.body);
 const data = obj.data;
 let e;
