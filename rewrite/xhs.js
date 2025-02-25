@@ -1,5 +1,5 @@
 /*******************************************************************
- * [rewrite_local]
+ * [rewrite_remote]
  * ^https?:\/\/so\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/xhs.js
  *  
  * [mitm]

@@ -3,7 +3,7 @@
  [mitm]
  hostname = i.weread.qq.com, weread.qq.com
  
- [rewrite_local]
+ [rewrite_remote]
 
 ^https?:\/\/i\.weread\.qq\.com\/discoverfeed\/new url script-response-body  https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/weread.js
 #^https?:\/\/i\.weread\.qq\.com\/market\/category\?categoryId=hot_search url reject-dict

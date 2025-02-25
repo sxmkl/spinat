@@ -1,5 +1,5 @@
 /* *******************************************************************************
- * [rewrite_local]
+ * [rewrite_remote]
  * ^https?:\/\/gql-fed\.reddit\.com url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/reddit.js
  *
  * [mitm]
