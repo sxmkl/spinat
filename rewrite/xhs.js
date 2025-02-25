@@ -1,16 +1,16 @@
 /*******************************************************************
- * [rewrite_remote]
- * ^https?:\/\/so\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/xhs.js
- *  
- * [mitm]
- * hostname = so.xiaohongshu.com
- * 
- * [filter_local]
- * // host, apm-fe.xiaohongshu.com, reject
- * 
- * [general]
- * # 删除搜索推荐
- * udp_drop_list=443
+[rewrite_remote]
+^https?:\/\/so\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/xhs.js
+ 
+[mitm]
+hostname = so.xiaohongshu.com
+
+[filter_local]
+// host, apm-fe.xiaohongshu.com, reject
+
+[general]
+# 删除搜索推荐
+udp_drop_list=443
  *******************************************************************/
 
 let url = $request.url;
