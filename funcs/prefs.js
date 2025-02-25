@@ -1,10 +1,10 @@
-/***********************************************************
+/************************************
 [rewrite_local]
 ^https?:\/\/spinat.org\/prefs script-analyze-echo-response https://raw.githubusercontent.com/sxmkl/spinat/main/funcs/prefs.js
 
 [mitm]
 hostname = spinat.org
-***********************************************************/
+************************************/
 
 const url = new URL($request.url);
 const path = $request.path;
@@ -63,7 +63,8 @@ switch (true) {
     case /edit/.test(path):
         const key = url.searchParams.get("key") || "";
         const css = `*{font-family:Courier,-apple-system,BlinkMacSystemFont,"SegoeUI",Roboto,sans-serif;}body{max-width:800px;margin:20pxauto;padding:020px;padding-bottom:80px;}input,textarea{font-family:inherit;}.input-group{margin:15px0;}.input-grouplabel{display:block;margin-bottom:8px;color:#333;font-weight:500;}#keyInput{width:90%;padding:10px;border:1pxsolid#ddd;border-radius:4px;font-size:13px;}#valueInput{width:90%;height:auto;padding:10px;border:1pxsolid#ddd;border-radius:4px;font-size:12px;line-height:1.2;resize:vertical;}.buttons{position:fixed;top:20px;right:20px;display:flex;flex-direction:column;gap:8px;padding:10px;border-radius:8px;box-shadow:02px10pxrgba(0,0,0,0.1);z-index:100;touch-action:none;user-select:none;cursor:move;transition:transform0.1sease;}button{padding:6px12px;min-width:60px;border:none;border-radius:4px;background:rgba(0,123,255,0.78);color:white;font-size:13px;cursor:pointer;transition:all0.2sease;pointer-events:auto;}button:hover{opacity:0.9;}button:disabled{opacity:0.7;cursor:not-allowed;}.toast{visibility:hidden;min-width:50px;background-color:#333;color:#fff;text-align:center;border-radius:2px;padding:10px;position:fixed;z-index:1;left:50%;bottom:300px;transform:translateX(-50%);opacity:0;}.toast.show{visibility:visible;opacity:1;animation:fadein0.3s,fadeout0.5s1sforwards;}.toast.error{visibility:visible;opacity:1;animation:fadein0.3s,fadeout0.5s2sforwards;}@keyframes fadein{to{bottom:300px;opacity:1;visibility:visible;}}@keyframes fadeout{from{bottom:300px;opacity:1;}to{bottom:250px;opacity:0;visibility:hidden;}}`
-        const htmlContent = `
+        const htmlContent =
+        `
 <!DOCTYPE html>
 <html>
 	<head>
