@@ -1,6 +1,6 @@
 /* 
 [rewrite_local]
-^https?:\/\/(i|market)\.waimai\.meituan\.com\/vp\/magical\/exchange\/pre url script-response-body https://n1t6l90p-2222.asse.devtunnels.ms/pre.js
+^https?:\/\/(i|market)\.waimai\.meituan\.com\/vp\/magical\/exchange\/pre url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/pre.js
 [mitm]
 hostname = *.waimai.meituan.com
  */
