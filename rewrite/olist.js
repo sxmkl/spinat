@@ -5,7 +5,7 @@
  
 [mitm]
 hostname = i.waimai.meituan.com, wx-shangou.meituan.com
-********************************************************/
+*********************************************************/
 
 
 // alipays://platformapi/startapp?appId=2021004146625103&page=pages/web-view/web-view?webviewUrl=https://h5.waimai.meituan.com
