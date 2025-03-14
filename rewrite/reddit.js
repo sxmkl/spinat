@@ -4,7 +4,7 @@
 
 [mitm]
 hostname=gql-fed.reddit.com
-******************************************/
+********************************************/
 
 const obj = JSON.parse($response.body);
 const data = obj.data;

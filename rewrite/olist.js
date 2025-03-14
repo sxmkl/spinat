@@ -1,11 +1,12 @@
-/* ********************************************************
+/*********************************************************
 [rewrite_local]
 ^https?:\/\/wx-shangou\.meituan\.com\/quickbuy\/v1\/payment\/pay url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/olist.js
 ^https?:\/\/i\.waimai\.meituan\.com\/openh5\/order url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/olist.js
- *
+ 
 [mitm]
 hostname = i.waimai.meituan.com, wx-shangou.meituan.com
 ********************************************************/
+
 
 // alipays://platformapi/startapp?appId=2021004146625103&page=pages/web-view/web-view?webviewUrl=https://h5.waimai.meituan.com
 
