@@ -1,9 +1,7 @@
-/* 
-[rewrite_local]
+/*
 ^https?:\/\/(i|market)\.waimai\.meituan\.com\/vp\/magical\/exchange\/pre url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/pre.js
-[mitm]
 hostname = *.waimai.meituan.com
- */
+*/
 
 
 const obj = JSON.parse($response.body);

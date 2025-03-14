@@ -1,6 +1,6 @@
 /* 
 ^https:\/\/cubox\.(pro|cc)\/c\/api\/user url script-response-body  https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/cubox.js
-hostname = cubox.pro,cubox.cc
+hostname = cubox.pro, cubox.cc
 */
 
 var body = $response.body;
