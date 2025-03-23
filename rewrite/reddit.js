@@ -23,6 +23,9 @@ try {
   else if (data?.children?.commentsPageAds) {
     data.children.commentsPageAds = [];
   }
+  else if (data?.postInfoById?.commentsPageAds) {
+    data.postInfoById.commentsPageAds = [];
+  }
   // Remove subreddit ads
   else if (e = data?.subredditInfoByName?.elements) {
     e.edges = e.edges?.filter(edge =>
