@@ -179,7 +179,7 @@ function htmlFuncs() {
             try {
                 const parsedValue = JSON.parse(value);
                 if (typeof parsedValue === "object") {
-                    displayValue = JSON.stringify(parsedValue, null, 2);
+                    displayValue = formatJSON(parsedValue, null, 2);
                     valueType = "object";
                 }
             } catch (e) {
@@ -248,3 +248,63 @@ function htmlFuncs() {
         }
     }
 }
+
+function formatJSON(obj, replacer = null, space = 2) {
+    const indent = typeof space === "number" ? " ".repeat(space) : space;
+    const newline = space ? "\n" : "";
+    const wrap_column = 100,
+        wrap_item = 30;
+
+    function stringify(value, depth) {
+        if (value === null) {
+            return "null";
+        }
+        if (typeof value === "number" || typeof value === "boolean") {
+            return String(value);
+        }
+        if (typeof value === "string") {
+            // let wrap = value.length > 80 ? '\n' : '';
+            return `"${value}"`;
+        }
+        if (Array.isArray(value)) {
+            if (value.toString().length < wrap_column) {
+                let items = value.map((item) => stringify(item, depth + 1)).join(`, `);
+                return `[${items}]`;
+            } else {
+                let wrap = "";
+                let column = 0;
+                let items = value.map((item) => {
+                    item = stringify(item, depth + 1);
+                    column += item.length;
+                    wrap =
+                        item.length > wrap_item || column > wrap_column
+                            ? ((column = 0), `\n${indent.repeat(depth + 1)}`)
+                            : "";
+                    return wrap + item;
+                });
+                return `[${items[0] < wrap_item ? newline : ""}${indent.repeat(depth + 1)}${items.join(
+                    `,`
+                )}${newline}${indent.repeat(depth)}]`;
+            }
+        } else if (typeof value === "object") {
+            const keys = Array.isArray(replacer) ? replacer : Object.keys(value);
+            const items = keys
+                .map((key) => {
+                    const val = typeof replacer == "function" ? replacer(key, value[key]) : value[key];
+                    if (val !== undefined) {
+                        return `"${key}": ${stringify(val, depth + 1)}`;
+                    }
+                    return null;
+                })
+                .filter((item) => item !== null)
+                .join(`,${newline}${indent.repeat(depth + 1)}`);
+            return items
+                ? `{${newline}${indent.repeat(depth + 1)}${items}${newline}${indent.repeat(depth)}}`
+                : `{}`;
+        }
+        return undefined;
+    }
+
+    return stringify(obj, 0);
+}
+

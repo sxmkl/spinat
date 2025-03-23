@@ -1,22 +1,19 @@
-/************************ 
- 
- [mitm]
- hostname = i.weread.qq.com, weread.qq.com
- 
- [rewrite_remote]
- 
-^https?:\/\/i\.weread\.qq\.com\/discoverfeed\/new url script-response-body  https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/weread.js
-#^https?:\/\/i\.weread\.qq\.com\/market\/category\?categoryId=hot_search url reject-dict
-#^https?:\/\/weread\.qq\.com\/feconfig\/getBundles url reject-dict
+/*********************************************************
+ * 
+[rewrite_local]
 
 #首页顶栏
 ^https?:\/\/i\.weread\.qq\.com\/storyfeed\/tags\?type=2 url reject-dict
 
+^https?:\/\/i\.weread\.qq\.com\/discoverfeed\/new url script-response-body  https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/weread.js
 ^https?:\/\/weread\.qq\.com\/feconfig url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/weread.js
 ^https?:\/\/i\.weread\.qq\.com url script-response-body  https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/weread.js
 
 
-*************************/
+[mitm]
+hostname = i.weread.qq.com, weread.qq.com
+
+*********************************************************/
 
 const url = $request.url;
 const headers = $request.headers;
