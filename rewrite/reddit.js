@@ -27,8 +27,8 @@ try {
     data.postInfoById.commentsPageAds = [];
     data.postInfoById.commentTreeAds = [];
   }
-  else if (posts = data?.postsInfoByIds) {
-    posts = posts.filter(p => !p.isCreatedFromAdsUi) || [];
+  else if (data?.postsInfoByIds) {
+    data.postsInfoByIds = data.postsInfoByIds.filter(p => !p.isCreatedFromAdsUi) || [];
   }
   // Remove subreddit ads
   else if (e = data?.subredditInfoByName?.elements) {
