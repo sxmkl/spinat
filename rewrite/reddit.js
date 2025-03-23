@@ -7,7 +7,6 @@ hostname=gql-fed.reddit.com
 ********************************************/
 
 
-
 const obj = JSON.parse($response.body);
 const data = obj.data;
 let e;
@@ -19,6 +18,12 @@ try {
       !edge.node?.adPayload
     ) || [];
   }
+  else if (e = data?.subredditV3?.elements) {
+    e.edges = e.edges?.filter(edge =>
+      !edge.node?.adPayload
+    ) || [];
+  }
+    
   // Remove commentsPageAds
   else if (data?.children?.commentsPageAds) {
     data.children.commentsPageAds = [];
@@ -27,9 +32,11 @@ try {
     data.postInfoById.commentsPageAds = [];
     data.postInfoById.commentTreeAds = [];
   }
+    
   else if (data?.postsInfoByIds) {
     data.postsInfoByIds = data.postsInfoByIds.filter(p => !p.isCreatedFromAdsUi) || [];
   }
+    
   // Remove subreddit ads
   else if (e = data?.subredditInfoByName?.elements) {
     e.edges = e.edges?.filter(edge =>
@@ -37,7 +44,6 @@ try {
     ) || [];
 
   }
-
   $done({body: JSON.stringify(obj)});
 } catch (error) {
   console.log('Error:' + error);
