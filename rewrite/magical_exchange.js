@@ -1,6 +1,7 @@
 /*********************************************************
 [rewrite_local]
-^https?:\/\/(i|market)\.waimai\.meituan\.com\/vp\/magical\/exchange\/pre url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/pre.js
+^https?:\/\/(i|market)\.waimai\.meituan\.com\/vp\/magical\/exchange\/pre url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/magical_exchange.js
+^https?:\/\/(i|market)\.waimai\.meituan\.com\/vp\/magical\/exchange\/marketing_exchange_recall url script-response-body https://raw.githubusercontent.com/sxmkl/spinat/main/rewrite/magical_exchange.js
 
 [mitm]
 hostname = *.waimai.meituan.com
